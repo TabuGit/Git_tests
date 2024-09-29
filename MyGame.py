@@ -72,33 +72,6 @@ def launch_human_vs_robot_rand():
     print(f'{players[(move_ct + 1) % 2]} has won!')
 
 
-def launch_human_vs_robot_rand():
-    print('Player, please type your name')
-    player_human = input()
-    print('The game has started\n')
-    players = [player_human.capitalize(), 'Robot']
-    move_ct = 0
-    hp = [20, 20]
-    while (hp[0] > 0) and (hp[1] > 0):
-        if move_ct % 2 == 0:
-            print(f'{players[0]}, hit the robot (choose: 1 - 9)')
-            hit = int(input())
-            if hit_success(hit):
-                hp[1] -= hit
-                print(f'You delivered {hit} damage')
-            else:
-                print('Miss :(')
-        else:
-            hit = rd.randint(1, 9)
-            robot_damage = hit_success(hit) * hit
-            hp[0] -= robot_damage
-            print(f'You got {robot_damage} damage from robot')
-        print(players[0], hp[0])
-        print(players[1], hp[1])
-        move_ct += 1
-    print(f'{players[(move_ct + 1) % 2]} has won!')
-
-
 def launch_human_vs_robot_strat():
     print('Player, please type your name')
     player_human = input()
@@ -128,6 +101,6 @@ def launch_human_vs_robot_strat():
         move_ct += 1
     print(f'{players[(move_ct + 1) % 2]} has won!')
 
-    
+
 if __name__ == '__main__':
     main()
