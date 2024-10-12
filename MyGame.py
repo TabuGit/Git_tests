@@ -15,10 +15,10 @@ def main():
         launch_human_vs_robot_strat()
 
 
-def hit_success(hit: int) -> bool:
+def hit_success(hit: int) -> int:
     success_prob = (10 - hit + 1) / 10
-    ans = rd.choices((True, False), weights=[success_prob, 1 - success_prob])
-    return ans[0]
+    ans = rd.choices((hit, 0), weights=[success_prob, 1 - success_prob])[0]
+    return ans
 
 
 def launch_human_vs_human():
